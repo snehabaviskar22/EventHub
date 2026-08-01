@@ -7,6 +7,8 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Event;
 
 // Public routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -47,4 +49,19 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/events/{event}/edit', [EventController::class, 'edit'])->name('events.edit');
     Route::put('/events/{event}', [EventController::class, 'update'])->name('events.update');
     Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy');
+});
+
+Route::get('/debug-storage', function () {
+    $event = Event::first();
+
+    return response()->json([
+        'banner_db' => $event?->banner,
+        'video_db' => $event?->video,
+        'banner_exists' => Storage::disk('public')->exists($event?->banner),
+        'video_exists' => Storage::disk('public')->exists($event?->video),
+        'banner_url' => asset('storage/' . $event?->banner),
+        'video_url' => asset('storage/' . $event?->video),
+        'storage_url_banner' => Storage::disk('public')->url($event?->banner),
+        'storage_url_video' => Storage::disk('public')->url($event?->video),
+    ]);
 });
