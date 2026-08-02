@@ -220,7 +220,7 @@ Ticket Generated
 ## Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/EventHub.git
+git clone https://github.com/snehabaviskar22/EventHub.git
 ```
 
 ```bash
