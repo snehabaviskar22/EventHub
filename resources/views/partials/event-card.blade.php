@@ -1,7 +1,11 @@
 @php
-    $bannerUrl = $event->banner
-        ? asset('storage/' . $event->banner)
-        : 'https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=800';
+    if (!$event->banner) {
+        $bannerUrl = 'https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=800';
+    } elseif (filter_var($event->banner, FILTER_VALIDATE_URL)) {
+        $bannerUrl = $event->banner;
+    } else {
+        $bannerUrl = asset('storage/' . $event->banner);
+    }
 @endphp
 <article class="card-custom h-100">
     <div class="position-relative overflow-hidden">
