@@ -1,66 +1,142 @@
 # 🎉 EventHub
 ### College Event Management & Ticket Booking Platform
 
-EventHub is a full-stack Laravel 12 web application developed as an MCA academic project. It enables colleges to efficiently manage events while allowing students to browse, book, and manage event tickets through an intuitive and responsive web interface.
+![Laravel](https://img.shields.io/badge/Laravel-12-red)
+![PHP](https://img.shields.io/badge/PHP-8.2-blue)
+![MySQL](https://img.shields.io/badge/MySQL-Database-orange)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple)
+![Railway](https://img.shields.io/badge/Deployed-Railway-success)
+
+EventHub is a full-stack Laravel 12 web application developed as an MCA academic project. It provides a centralized platform where colleges can manage events efficiently while students can browse events, book tickets, receive confirmation emails, and download tickets online.
 
 ---
 
-## 📌 Project Overview
+# 🌐 Live Demo
 
-Managing college events manually can lead to scheduling conflicts, registration issues, and poor event organization. EventHub provides a centralized platform where administrators can create and manage events, while students can securely register, book tickets, and access their bookings online.
+**Live Project**
+
+👉 https://eventhub-production-cfbe.up.railway.app/
 
 ---
 
-## ✨ Features
+# 📷 Screenshots
 
-### 👨‍💼 Admin Module
-- Secure Admin Login
-- Dashboard with statistics
-- Create, Edit & Delete Events
-- Publish or Unpublish Events
-- Upload Event Banner, Audio & Video Preview
-- Set Event Capacity
-- Set Booking Deadline
-- Specify Eligible Academic Programs
-- View All Student Bookings
+## Home Page
 
-### 🎓 Student Module
-- Student Registration & Login
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/98c55da5-bf74-414d-b8e0-7dc9ced82784" />
+
+
+---
+
+## Event Details
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d232b9e7-d6a6-4f58-b3c8-e98e7637b8f2" />
+
+---
+
+## Student Bookings
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c2943668-4f08-4bd4-863e-98ef7affdbc3" />
+
+
+---
+
+## Admin Dashboard
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/cd16b7b3-a01e-4007-961c-0d89ab047d65" />
+
+
+---
+
+## Event Creation
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/47a28642-4273-4949-bad0-0a28ba2dd034" />
+
+
+---
+
+# 📌 Project Objectives
+
+The primary objectives of EventHub are:
+
+- Develop a centralized event management platform for educational institutions.
+- Simplify event creation and management for administrators.
+- Allow students to browse and register for events online.
+- Prevent duplicate and conflicting event bookings.
+- Generate downloadable PDF tickets.
+
+---
+
+# ✨ Features
+
+## 👨‍💼 Admin Module
+
+- Secure Admin Authentication
+- Dashboard with Statistics
+- Create Events
+- Edit Events
+- Delete Events
+- Publish / Unpublish Events
+- Upload Event Banner
+- Upload Event Audio Preview
+- Upload Event Video Preview
+- Seat Capacity Management
+- Booking Deadline Management
+- Eligible Academic Program Selection
+- View Student Bookings
+
+---
+
+## 🎓 Student Module
+
+- Student Registration
+- Secure Login
 - Browse Upcoming Events
-- View Event Details
+- Event Details Page
+- Demo Payment System
 - Book Event Tickets
-- Demo Payment for Paid Events
+- Download Ticket PDF
 - View Booking History
-- Download Ticket as PDF
-- Booking Confirmation Email
 
 ---
 
-## ✅ Smart Booking Validations
+# ✅ Smart Booking Validations
 
-The system prevents invalid bookings by checking:
+The system automatically checks:
 
-- Booking deadline has not passed
-- Student belongs to an eligible academic program
-- Seat availability
-- Event time conflicts with previously booked events
-- Duplicate bookings for the same event
+- ✅ Booking Deadline
+- ✅ Seat Availability
+- ✅ Duplicate Bookings
+- ✅ Academic Program Eligibility
+- ✅ Time Conflict with Existing Bookings
 
 ---
 
-## 🛠 Tech Stack
+# ☁ Cloud Features
 
-| Technology | Used |
-|------------|------|
-| Framework | Laravel 12 |
-| Language | PHP 8.2+ |
+- Cloud Deployment using Railway
+- Cloudinary Media Storage
+- MySQL Database
+- Responsive UI
+
+---
+
+# 🛠 Technology Stack
+
+| Category | Technology |
+|-----------|------------|
+| Backend | Laravel 12 |
+| Language | PHP 8.2 |
+| Frontend | HTML5 |
+| Styling | CSS3, Bootstrap 5 |
+| JavaScript | JavaScript |
 | Database | MySQL |
 | ORM | Eloquent ORM |
-| Frontend | HTML5, CSS3, Bootstrap 5, JavaScript |
-| PDF | barryvdh/laravel-dompdf |
 | Authentication | Laravel Authentication |
-| Email | Laravel Mail |
-| Deployment | Hostinger |
+| PDF Generation | barryvdh/laravel-dompdf |
+| Media Storage | Cloudinary |
+| Deployment | Railway |
+| Version Control | Git & GitHub |
 
 ---
 
@@ -68,29 +144,27 @@ The system prevents invalid bookings by checking:
 
 ```
 app/
- ├── Http/
- │    ├── Controllers/
- │    ├── Middleware/
- │    └── Requests/
- │
- ├── Mail/
- ├── Models/
- │
+│
+├── Http/
+│   ├── Controllers/
+│   ├── Middleware/
+│   └── Requests/
+│
+├── Mail/
+├── Models/
+│
 config/
-
 database/
- ├── migrations/
- └── seeders/
-
+│   ├── migrations/
+│   └── seeders/
+│
 public/
-
 resources/
- ├── views/
- ├── css/
- ├── js/
-
+│   ├── views/
+│   ├── css/
+│   └── js/
+│
 routes/
-
 storage/
 ```
 
@@ -127,8 +201,8 @@ Validation Checks
 ├── Booking Deadline
 ├── Seat Availability
 ├── Eligible Program
-├── Time Conflict
-└── Duplicate Booking
+├── Duplicate Booking
+└── Time Conflict
           │
           ▼
 Demo Payment
@@ -136,8 +210,7 @@ Demo Payment
           ▼
 Ticket Generated
           │
-          ├── PDF Download
-          └── Confirmation Email
+          ├── Download PDF
 ```
 
 ---
@@ -164,13 +237,13 @@ composer install
 
 ---
 
-## Configure Environment
+## Create Environment File
 
 ```bash
-copy .env.example .env
+cp .env.example .env
 ```
 
-Generate application key
+Generate Application Key
 
 ```bash
 php artisan key:generate
@@ -180,7 +253,7 @@ php artisan key:generate
 
 ## Configure Database
 
-Create a MySQL database named
+Create a MySQL Database
 
 ```
 eventhub
@@ -199,6 +272,14 @@ DB_PASSWORD=
 
 ---
 
+## Configure Cloudinary (Optional for Production)
+
+```env
+CLOUDINARY_URL=cloudinary://API_KEY:API_SECRET@CLOUD_NAME
+```
+
+---
+
 ## Run Migrations
 
 ```bash
@@ -213,7 +294,7 @@ php artisan db:seed
 
 ---
 
-## Storage Link
+## Create Storage Link
 
 ```bash
 php artisan storage:link
@@ -221,7 +302,7 @@ php artisan storage:link
 
 ---
 
-## Run Project
+## Start Development Server
 
 ```bash
 php artisan serve
@@ -235,16 +316,23 @@ http://127.0.0.1:8000
 
 ---
 
-# 🎯 Future Enhancements
+# 📈 Future Enhancements
 
-- QR Code Based Entry
-- Online Payment Gateway Integration
-- Event Attendance Tracking
-- Certificate Generation
-- Push Notifications
+- QR Code Based Event Entry
+- Online Payment Gateway
+- Attendance Tracking
 - Student Feedback & Ratings
-- Event Analytics Dashboard
-  
+- Event Search & Filtering
+
+---
+
+# 👩‍💻 Developer
+
+**Sneha Baviskar**
+
+MCA Student
+
+
 ---
 
 # 📄 License
