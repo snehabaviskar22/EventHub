@@ -23,9 +23,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 @section('content')
 @php
-    $bannerUrl = $event->banner
-        ? asset('storage/' . $event->banner)
-        : 'https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1200';
+    if (!$event->banner) {
+        $bannerUrl = 'https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1200';
+    } elseif (filter_var($event->banner, FILTER_VALIDATE_URL)) {
+        $bannerUrl = $event->banner;
+    } else {
+        $bannerUrl = asset('storage/' . $event->banner);
+    }
+
+    $audioUrl = $event->audio
+        ? (filter_var($event->audio, FILTER_VALIDATE_URL)
+            ? $event->audio
+            : asset('storage/' . $event->audio))
+        : null;
+
+    $videoUrl = $event->video
+        ? (filter_var($event->video, FILTER_VALIDATE_URL)
+            ? $event->video
+            : asset('storage/' . $event->video))
+        : null;
 @endphp
 
 <section class="container py-5">
@@ -139,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <hr class="my-4">
                         <h5 class="fw-bold mb-3"><i class="bi bi-soundwave me-2 text-primary-brand"></i>Audio Preview</h5>
                         <audio controls class="w-100">
-                            <source src="{{ asset('storage/' . $event->audio) }}" type="audio/mpeg">
+                            <source src="{{ $audioUrl }}" type="audio/mpeg">
                             Your browser does not support the audio element.
                         </audio>
                     @endif
@@ -148,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <hr class="my-4">
                         <h5 class="fw-bold mb-3"><i class="bi bi-play-circle me-2 text-primary-brand"></i>Video Preview</h5>
                         <video controls class="w-100" style="border-radius:1rem;">
-                            <source src="{{ asset('storage/' . $event->video) }}" type="video/mp4">
+                            <source src="{{ $videoUrl }}" type="video/mp4">
                             Your browser does not support the video element.
                         </video>
                     @endif
