@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class EventController extends Controller
 {
@@ -118,16 +119,31 @@ class EventController extends Controller
         return $validated;
     }
 
-    private function uploadFile(Request $request, string $field, string $folder, ?string $existing = null): ?string
-    {
-        if ($request->hasFile($field)) {
-            if ($existing) {
-                Storage::disk('public')->delete($existing);
-            }
-
-            return $request->file($field)->store($folder, 'public');
-        }
-
+   private function uploadFile(Request $request, string $field, string $folder, ?string $existing = null): ?string
+{
+    if (!$request->hasFile($field)) {
         return $existing;
     }
+
+    // LOCAL DEVELOPMENT
+    if (!app()->environment('production')) {
+
+        if ($existing) {
+            Storage::disk('public')->delete($existing);
+        }
+
+        return $request->file($field)->store($folder, 'public');
+    }
+
+    // PRODUCTION (Railway)
+    $uploaded = Cloudinary::upload(
+        $request->file($field)->getRealPath(),
+        [
+            'folder' => "eventhub/{$folder}",
+            'resource_type' => 'auto'
+        ]
+    );
+
+    return $uploaded->getSecurePath();
+}
 }
