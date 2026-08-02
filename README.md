@@ -326,15 +326,16 @@ http://127.0.0.1:8000
 
 ---
 
-# 👩‍💻 Developer
+# Author
 
 **Sneha Baviskar**
 
 MCA Student
 
+Savitribai Phule Pune University
 
 ---
 
-# 📄 License
+# License
 
-This project has been developed for academic and learning purposes.
+This project is developed for academic and educational purposes.
