@@ -5,7 +5,6 @@
 ![PHP](https://img.shields.io/badge/PHP-8.2-blue)
 ![MySQL](https://img.shields.io/badge/MySQL-Database-orange)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple)
-![Railway](https://img.shields.io/badge/Deployed-Railway-success)
 
 EventHub is a full-stack Laravel 12 web application developed as an MCA academic project. It provides a centralized platform where colleges can manage events efficiently while students can browse events, book tickets, receive confirmation emails, and download tickets online.
 
