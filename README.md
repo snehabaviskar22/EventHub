@@ -11,14 +11,6 @@ EventHub is a full-stack Laravel 12 web application developed as an MCA academic
 
 ---
 
-# 🌐 Live Demo
-
-**Live Project**
-
-👉 https://eventhub-production-cfbe.up.railway.app/
-
----
-
 # 📷 Screenshots
 
 ## Home Page
